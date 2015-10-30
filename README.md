@@ -1,4 +1,4 @@
-# grunt-template-runner
+# grunt-gettext-static-build
 
 > Runs i18n and template engine at grunt's compile time.
 
@@ -43,7 +43,7 @@ grunt.initConfig({
 })
 ```
 > #### Destination folder
-> If the destination isn't a file name but a folder name (either a trailing '/' or the name of an existing folder) each input file will result in the generation of a new destination file for each specified language (see folder example below). 
+> If the destination isn't a file name but a folder name (either a trailing '/' or the name of an existing folder) each input file will result in the generation of a new destination file for each specified language (see folder example below).
 
 ### Options
 
@@ -183,6 +183,29 @@ grunt.initConfig({
   },
 })
 ```
+
+#### Locale-Named Sub Directories
+
+You can set options.subDir to "true" in order to put generated templates in
+locale specific directories instead of altering the filenames.
+
+Thus tmp/basic_en.html becomes tmp/en/basic.html
+
+```js
+grunt.initConfig({
+  template_runner: {
+    options: {
+      locales: ['en'],
+      subDir: true,
+      directory: 'locales'
+    },
+    files: {
+      'dest/': ['src/basic.html', 'src/another.hbs'],
+    },
+  },
+})
+```
+
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
