@@ -31,15 +31,6 @@ module.exports = function(grunt) {
 
 		// Configuration to be run (and then tested).
 		"gettext-static-build": {
-			bare_template: {
-				options: {
-					i18n: false,
-					data: {name : 'content'}
-				},
-				files: {
-					'tmp/default.txt': ['test/fixtures/default.txt']
-				}
-			},
 			basic_i18n: {
 				options: {
 					locales: ['en', 'fr'],

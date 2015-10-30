@@ -164,25 +164,6 @@ grunt.initConfig({
 ```
 
 ---
-#### Bare template
-In this example, the bare [Underscore template](http://underscorejs.org/#template) is used, usage of bare templating isn't the most useful part of this plugin but it's still here.
-The mandatory part in to disable internationalization by using `i18n: false` option.
-If input file contains an ERB string its contents gets updated using template data provided in the options. Eg.
-If source contains `Plain text template <%= name %>` the result of the following configuration should be `Plain text template Erik`.
-
-```js
-grunt.initConfig({
-  "gettext-static-build": {
-    options: {
-      i18n: false,
-      data: {name : 'Erik'}
-    },
-    files: {
-      'dest/myDest.txt': ['src/mySource.txt'],
-    },
-  },
-})
-```
 
 #### Locale-Named Sub Directories
 

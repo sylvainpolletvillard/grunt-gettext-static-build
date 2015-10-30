@@ -26,15 +26,6 @@ exports["gettext-static-build"] = {
   setUp: function(done) {
     done();
   },
-  default_text: function(test) {
-    test.expect(1);
-
-    var actual = grunt.file.read('tmp/default.txt');
-    var expected = grunt.file.read('test/expected/default.txt');
-    test.equal(actual, expected, 'should use bare replacement in plain text template.');
-
-    test.done();
-  },
   basic_i18n: function(test) {
     test.expect(2);
 

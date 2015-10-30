@@ -2,5 +2,9 @@
 	"Hello": "Bonjour",
 	"one": "un",
 	"two": "deux",
-	"three": "trois"
+	"three": "trois",
+	"_('Hello')": "_('Hello')",
+	"_('one')": "_('one')",
+	"_('two')": "_('two')",
+	"_('three')": "_('three')"
 }
