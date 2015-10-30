@@ -100,9 +100,8 @@ module.exports = function(grunt) {
           if (!grunt.file.exists(filepath)) {
             grunt.log.warn('Source file "' + filepath + '" not found.');
             return false;
-          } else {
-            return true;
           }
+          return !grunt.file.isDir(filepath);
         }).map(function(filepath) {
           // Read source template.
           var compiled = _.template(grunt.file.read(filepath));
