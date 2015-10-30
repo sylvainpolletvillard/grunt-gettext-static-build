@@ -57,9 +57,14 @@ module.exports = function(grunt) {
 
       if(options.gettext){
         gt = new Gettext();
-        var prefix = options.directory + '/' + options.gettext;
         options.locales.forEach(function(lng) {
-          var gtfile = prefix + '_' + lng + '.' + options.gettext_suffix;
+	        var gtfile;
+	        if(options.subDir){
+		        gtfile = options.directory + '/' + lng + '/' + options.gettext + '.' + options.gettext_suffix;
+	        } else {
+		        gtfile = options.directory + '/' + options.gettext + '_' + lng + '.' + options.gettext_suffix;
+	        }
+
           if(grunt.file.exists(gtfile)){
             var fileContents = fs.readFileSync(gtfile);
             gt.addTextdomain(lng, fileContents);
