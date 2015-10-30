@@ -65,7 +65,7 @@ module.exports = function(grunt) {
 		        gtfile = options.directory + '/' + options.gettext + '_' + lng + '.' + options.gettext_suffix;
 	        }
 
-          if(grunt.file.exists(gtfile)){
+          if(grunt.file.exists(gtfile) && !grunt.file.isDir(gtfile)){
             var fileContents = fs.readFileSync(gtfile);
             gt.addTextdomain(lng, fileContents);
           } else {
