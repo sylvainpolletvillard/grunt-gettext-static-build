@@ -17,7 +17,7 @@ module.exports = function(grunt) {
   var _ = grunt.util._;
 
 
-  grunt.registerMultiTask('template_runner', 'Your task description goes here.', function() {
+  grunt.registerMultiTask('gettext-static-build', 'Generate subdirectories for each locale replacing gettext labels from a PO file', function() {
     var options = this.options({
       i18n: true,
       locales : [],

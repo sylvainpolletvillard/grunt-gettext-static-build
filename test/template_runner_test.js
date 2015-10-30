@@ -22,7 +22,7 @@ var grunt = require('grunt');
     test.ifError(value)
 */
 
-exports.template_runner = {
+exports["gettext-static-build"] = {
   setUp: function(done) {
     done();
   },
