@@ -31,63 +31,11 @@ module.exports = function(grunt) {
 
 		// Configuration to be run (and then tested).
 		"gettext-static-build": {
-			basic_i18n: {
-				options: {
-					locales: ['en', 'fr'],
-					directory: 'test/fixtures/locales'
-				},
-				files: {
-					'tmp/basic.html': ['test/fixtures/basic.html']
-				}
-			},
-			subdir_i18n: {
-				options: {
-					locales: ['en', 'fr'],
-					subDir: true,
-					directory: 'test/fixtures/locales'
-				},
-				files: {
-					'tmp/': ['test/fixtures/basic.html']
-				}
-			},
-			no_extension: {
-				options: {
-					locales: ['en'],
-					directory: 'test/fixtures/locales'
-				},
-				files: {
-					'tmp/no_extension': ['test/fixtures/basic.html']
-				}
-			},
-			folder: {
-				options: {
-					locales: ['en', 'fr'],
-					directory: 'test/fixtures/locales'
-				},
-				files: {
-					'tmp/folder/': ['test/fixtures/folder/test1.html',
-						'test/fixtures/folder/test2.hbs',
-						'test/fixtures/folder/test3.md']
-				}
-			},
-			gettext: {
-				options: {
-					locales: ['en', 'fr'],
-					directory: 'test/gettext',
-					gettext: 'default',
-					gettext_suffix: 'po'
-				},
-				files: {
-					'tmp/fg/': ['test/fixtures/folder/test1.html',
-						'test/fixtures/folder/test2.hbs',
-						'test/fixtures/folder/test3.md']
-				}
-			}
 		},
 
 		// Unit tests.
 		nodeunit: {
-			tests: ['test/*.test.js']
+			tests: ['test/**']
 		}
 
 	});
@@ -105,6 +53,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('test', ['clean', 'gettext-static-build', 'nodeunit']);
 
 	// By default, lint and run all tests.
-	grunt.registerTask('default', ['jshint', 'test']);
+	grunt.registerTask('default', ['jshint']);
 
 };
