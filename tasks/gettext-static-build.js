@@ -28,7 +28,7 @@ module.exports = function(grunt) {
       gettext: null,
       gettext_suffix: 'mo',
       data: {},
-      regexp: /(_\(.+?\))/g,
+      regexp: /_\(['"](.+?)['"]\)/g,
       variable: null // Avoid underscore's template to use "with(...)"
     });
     grunt.verbose.writeflags(options, 'Options');
@@ -103,17 +103,15 @@ module.exports = function(grunt) {
           }
           return !grunt.file.isDir(filepath);
         }).map(function(filepath) {
-          // Read source template.
-          var compiled = _.template(grunt.file.read(filepath));
-          var data = options.data;
-          if(gt){
-            data._ = function(f) {
-              return gt.gettext(f);
-            };
-          } else {
-            data._ = i18n.__;
-          }
-          return compiled(data);
+
+          return grunt.file.read(filepath).replace(options.regexp, function(match, label){
+            if(gt){
+              console.log("match", label, gt.gettext(label));
+              return gt.gettext(label);
+            } else {
+              return i18n.__(label);
+            }
+          });
         });
 
         // Build destination name
