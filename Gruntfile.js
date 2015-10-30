@@ -1,6 +1,7 @@
 /*
- * grunt-template-runner
- * https://github.com/ErikLoubal/grunt-template-runner
+ * grunt-gettext-static-build
+ * https://github.com/sylvainpolletvillard/grunt-gettext-static-build
+ * forked from https://github.com/ErikLoubal/grunt-template-runner
  *
  * Copyright (c) 2013 Erik Loubal
  * Licensed under the MIT license.
@@ -95,7 +96,7 @@ module.exports = function(grunt) {
 
 		// Unit tests.
 		nodeunit: {
-			tests: ['test/*_test.js']
+			tests: ['test/*.test.js']
 		}
 
 	});
