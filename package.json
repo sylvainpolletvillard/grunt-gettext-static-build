@@ -1,7 +1,7 @@
 {
   "name": "grunt-gettext-static-build",
   "description": "Runs templates and i18n at grunt's compile time.",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "homepage": "https://github.com/sylvainpolletvillard/grunt-gettext-static-build",
   "authors": [
 	  {

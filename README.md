@@ -87,19 +87,27 @@ grunt.initConfig({
   "gettext-static-build": {
     production: {
       options: {
-    	locales: ['fr','en'],
-    	poDirectory: 'translations/',
-    	poFile: 'messages.po',
-    	dest: grunt.config('paths.dist'),
-    	filesToSkip: ['img/**','fonts/**'],
-    	regex: /\btr\(['"](.+?)['"]\)|\{\{\s*tr\s+['"](.*?)['"]\}\}/g,
+        locales: 'locales',
+        poDirectory: 'translations',
+        poFile: 'messages.po',
+        dest: 'dist',
+        pathToRemove: 'src/',
+        regex: {
+          handlebars: /\{\{\s*tr\s+['"](.*?)['"]\}\}/g,
+          html: /\btr\(['"](.+?)['"]\)/g,
+          javascript: /\btr\((['"].+?['"])\)/g
+        }
       },
-      files: [{
-        expand: true,
-    	cwd: 'src',
-    	src: ['**'],
-    	dest: 'dist/'
-      }]
+      files: {
+        handlebars: ['src/**.hbs'],
+        html: ['src/**.html'],
+        javascript: ['src/**.js'],
+        assets: [
+          'src/**.css',
+          'src/img/**',
+          'src/fonts/**'
+        ]
+      }
     }
   }
 })
